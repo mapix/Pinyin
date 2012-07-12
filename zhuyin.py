@@ -6,7 +6,7 @@ import urllib2, urllib
 import lxml.html.soupparser as soupparser
 
 url = "http://py.kdd.cc/unicode/"
-data = { "zy":"1", "dy":"red", "ps":"gray", "zs":"blue", "kd":"80" }
+data = { "zy":"1", "dy":"red", "ps":"gray", "zs":"blue", "kd":"55" , "u":3}
 
 def crawler_wz_pinyin(wz):
     data['wz'] = wz.encode('utf-8')
@@ -24,7 +24,9 @@ def process_w(w):
         if not py_w in fout_l:
             fout_l[py_w] = open("zhuyin/"+w.encode('utf-8') \
                                 +"."+py_w.encode('utf-8'), 'w')
-        #fout_l[py_w].write(wz+"#"+"@".join(py_wz) + '\n')
+        print w, wz, py_w, py_wz
+        fout_l[py_w].write(wz.encode('utf-8')+"#" \
+                 +u"@".join(py_wz).encode("utf-8") + '\n')
 
     for f in fout_l:
         f.flush()
