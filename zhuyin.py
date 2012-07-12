@@ -7,6 +7,7 @@ import lxml.html.soupparser as soupparser
 
 url = "http://py.kdd.cc/unicode/"
 data = { "zy":"1", "dy":"red", "ps":"gray", "zs":"blue", "kd":"55" , "u":3}
+count_w = 0
 
 def crawler_wz_pinyin(wz):
     data['wz'] = wz.encode('utf-8')
@@ -17,6 +18,7 @@ def crawler_wz_pinyin(wz):
 
 def process_w(w):
     fout_l = {}
+    count_wz = 0
     for wz in open('duoyinzi/'+w):
         wz = wz.strip().decode('utf-8')
         py_wz = crawler_wz_pinyin(wz)
@@ -24,9 +26,10 @@ def process_w(w):
         if not py_w in fout_l:
             fout_l[py_w] = open("zhuyin/"+w.encode('utf-8') \
                                 +"."+py_w.encode('utf-8'), 'w')
-        print w, wz, py_w, py_wz
+        print count_w, count_wz, w, wz, py_w, py_wz
         fout_l[py_w].write(wz.encode('utf-8')+"#" \
                  +u"@".join(py_wz).encode("utf-8") + '\n')
+        count_wz += 1
 
     for f in fout_l:
         f.flush()
@@ -35,7 +38,7 @@ def process_w(w):
 def zhuyin(path):
     for w in os.listdir(path): 
         process_w(w.decode('utf-8'))
-        print w
+        count_w += 1
 
 
 if __name__ == "__main__":
