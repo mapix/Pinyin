@@ -8,7 +8,7 @@ import itertools
 
 __all__ = ["get_pinyin"]
 
-base = os.path.abspath('.')
+base = os.path.abspath(os.path.dirname(__file__))
 mmseg.mmseg.dict_load_words(base + "/data/mmseg/words-pytrans.dic")
 zh_cn = re.compile(ur'^[\u4e00-\u9fa5]+$')
 
