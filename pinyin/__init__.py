@@ -5,9 +5,9 @@ import os
 import re
 import mmseg
 import itertools
-from version import __version__ as version
+from version import __version__
 
-__all__ = ["get_pinyin", "version"]
+__all__ = ["get_pinyin", "__version__"]
 
 base = os.path.abspath(os.path.dirname(__file__))
 mmseg.mmseg.dict_load_words(base + "/data/mmseg/words-pytrans.dic")

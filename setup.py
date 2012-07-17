@@ -7,6 +7,7 @@ extra = {}
 
 try:
     from pinyin import version
+    version = version.__version__
 except ImportError:
     version = 'unknown'
 
