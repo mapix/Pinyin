@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 extra = {}
 
 try:
-    from opencc import version
+    from pinyin import version
     version = version.__version__
 except ImportError:
     version = 'unknown'
@@ -20,7 +20,7 @@ except IOError:
     pass
 
 setup(
-    name='pyopencc',
+    name='pinyin',
     version=version,
     description='Convert chinese to Pinyin(Only CH Simple)',
     author='qingchen',
