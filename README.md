@@ -1,3 +1,7 @@
+Pinyin
+======
+靠谱的拼音转换。
 
-deps:
-pip install mmseg
+Deps
+====
+依赖mmseg：`pip install mmseg`
