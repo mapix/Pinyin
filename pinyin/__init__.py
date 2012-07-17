@@ -31,7 +31,7 @@ def get_pinyin(text):
     if type(text) == unicode:
         text = text.encode("utf-8")
     wl = mmseg.seg_txt(text)
-    pyl = [_pinyin(wz) for wz in wl if zh_cn.match(wz.decode("utf-8"))]
+    pyl = [zh_cn.match(wz.decode("utf-8")) and _pinyin(wz) or wz.decode('utf-8') for wz in wl ]
     return list(itertools.chain.from_iterable(pyl))
 
 if __name__ == "__main__":
