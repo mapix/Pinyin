@@ -23,7 +23,7 @@ for line in  open(base + "/data/pinyin/wz_py.dic"):
 def _pinyin(wz):
     py  = dic_mul_py.get(wz, None)
     if not py:
-        py = [dic_default_py.get(w.encode("utf-8")) 
+        py = [dic_default_py.get(w.encode("utf-8"), w) 
                 for w in wz.decode("utf-8")]
     return py
 
