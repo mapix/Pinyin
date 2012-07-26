@@ -66,13 +66,14 @@ class Pinyin:
         return py
 
     def get_pinyin(self, text):
-        if type(text) == unicode:
+        if isinstance(text, unicode):
             text = text.encode("utf-8", 'ignore')
         wl = mmseg.seg_txt(text)
         pyl = [zh_cn.match(wz.decode("utf-8",'ignore')) 
                 and self._pinyin(wz) or wz.decode('utf-8','ignore') 
                 for wz in wl ]
-        return list(itertools.chain.from_iterable(pyl))
+        return map(lambda w:w.decode('utf-8', 'ignore'), 
+                itertools.chain.from_iterable(pyl))
 
 if __name__ == "__main__":
     py = Pinyin()
