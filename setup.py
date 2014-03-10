@@ -1,31 +1,19 @@
-from distribute_setup import use_setuptools
-use_setuptools()
+# -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
 
 extra = {}
 
-try:
-    from pinyin import version
-    version = version.__version__
-except ImportError:
-    version = 'unknown'
-
-try:
-    file = open('README.md', 'rt')
-    content = file.read()
-    file.close()
-    extra['long_description'] = content
-except IOError:
-    pass
+with open('README.md', 'rt') as f:
+    extra['long_description'] = f.read()
 
 setup(
     name='pinyin',
-    version=version,
-    description='Convert chinese to Pinyin(Only CH Simple)',
-    author='qingchen',
-    author_email='luoweifeng1989@gmail.com',
-    url='',
+    version='0.2.1',
+    description='Smart Chinese-to-Pinyin converter.)',
+    author='mapix',
+    author_email='mapix.me@gmail.com',
+    url='https://github.com/mapix/pinyin',
     license='MIT',
     packages=find_packages(),
     package_data={
