@@ -9,7 +9,7 @@ with open('README.md', 'rt') as f:
 
 setup(
     name='pinyin',
-    version='0.2.1',
+    version='0.3.0',
     description='Smart Chinese-to-Pinyin converter.)',
     author='mapix',
     author_email='mapix.me@gmail.com',
@@ -18,10 +18,9 @@ setup(
     packages=find_packages(),
     package_data={
         'pinyin': [
-            'data/mmseg/*',
-            'data/pinyin/*',
+            'data/*',
         ]
     },
-    install_requires=['distribute', 'mmseg'],
+    install_requires=['distribute', 'jieba'],
     **extra
 )
