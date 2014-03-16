@@ -3,6 +3,10 @@ Pinyin
 
 Smart Chinese-to-Pinyin converter.
 
+Install
+=======
+
+    pip install smart_pinyin
 
 Usage
 =====
