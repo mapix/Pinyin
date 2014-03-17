@@ -8,7 +8,7 @@ with open('README.md', 'rt') as f:
     extra['long_description'] = f.read()
 
 setup(
-    name='pinyin',
+    name='smart_pinyin',
     version='0.3.0',
     description='Smart Chinese-to-Pinyin converter.)',
     author='mapix',
