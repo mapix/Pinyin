@@ -9,7 +9,7 @@ with open('README.md', 'rt') as f:
 
 setup(
     name='smart_pinyin',
-    version='0.3.1',
+    version='0.3.2',
     description='Smart Chinese-to-Pinyin converter.',
     author='mapix',
     author_email='mapix.me@gmail.com',
