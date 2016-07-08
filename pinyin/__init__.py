@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from builtins import object
 
 import jieba
+import logging
 from collections import defaultdict
 from itertools import product, islice
 
@@ -19,23 +20,32 @@ class Pinyin(with_metaclass(Singleton, object)):
     def __init__(self):
 
         self.word_to_pinyins = defaultdict(list)
-        for line in open(FILE_WORDS):
+        f = open(FILE_WORDS, 'rb')
+        for line in f:
             pinyin, words = line.strip().decode("utf-8").split()
             for item in words:
                 self.word_to_pinyins[item].append(pinyin)
+        f.close()
 
         self.word_to_pinyin = {}
-        for line in open(FILE_WORD):
+        f = open(FILE_WORD, 'rb')
+        for line in f:
             word, pinyin = line.strip().decode("utf-8").split(",")
             self.word_to_pinyin[word] = pinyin
+        f.close()
 
         self.term_to_pinyin = {}
-        for line in open(FILE_TERM):
+        f = open(FILE_TERM, 'rb')
+        for line in f:
             term, pinyin = line.strip().decode("utf-8").split("#")
             self.term_to_pinyin[term] = pinyin.split("@")
+        f.close()
 
+        f = open(FILE_USER_DICT, 'rb')
+        jieba.setLogLevel(logging.INFO)
         jieba.initialize()
-        jieba.load_userdict(FILE_USER_DICT)
+        jieba.load_userdict(f)
+        f.close()
 
     def _pinyin(self, term, failure=None):
         pinyin_list = self.term_to_pinyin.get(term, None)

@@ -7,7 +7,7 @@ from os.path import join, abspath, dirname
 
 DB_DIR = abspath(dirname(__file__))
 
-CHINESE_RE = re.compile(ur'^[\u4e00-\u9fa5]+$')
+CHINESE_RE = re.compile(u'^[\u4e00-\u9fa5]+$')
 
 FILE_WORDS = join(DB_DIR, "data/words.dic")
 FILE_WORD = join(DB_DIR, "data/word.dic")
