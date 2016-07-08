@@ -14,7 +14,7 @@ Usage
 
     >>> from pinyin import Pinyin
     >>> pinyin = Pinyin()
-    >>> ' '.join(p.get_pinyin('银行行长潘玮柏长了一头乌黑的白发， 睡觉睡的很晚, 道行很深', failure=''))
+    >>> ' '.join(pinyin.get_pinyin('银行行长潘玮柏长了一头乌黑的白发， 睡觉睡的很晚, 道行很深', failure=''))
     >>> u'yin hang hang zhang pan wei bo zhang le yi tou wu hei de bai fa  shui jiao shui de hen wan  dao heng hen shen'
     
     >>> for i in pinyin.get_pinyin_all('自行车'): print list(i)

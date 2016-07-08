@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+from builtins import object
 # -*- coding: utf-8 -*-
 
 import jieba
@@ -6,13 +8,12 @@ from itertools import product, islice
 
 from pinyin.config import FILE_WORDS, FILE_WORD, FILE_TERM, FILE_USER_DICT, CHINESE_RE
 from pinyin.utils import Singleton
+from future.utils import with_metaclass
 
 __all__ = ["Pinyin"]
 
 
-class Pinyin(object):
-
-    __metaclass__ = Singleton
+class Pinyin(with_metaclass(Singleton, object)):
 
     def __init__(self):
 
@@ -50,7 +51,7 @@ class Pinyin(object):
         return [pinyin for pinyin_list in pinyin_list_iter for pinyin in pinyin_list]
 
     def get_pinyin_all(self, text, max_return=None, failure=None):
-        if not isinstance(text, unicode):
+        if not isinstance(text, str):
             text = text.decode("utf-8", "ignore")
         rs = [self.word_to_pinyins.get(word, [word if failure is None else failure]) for word in text]
         pinyin_all_iter = product(*rs)
