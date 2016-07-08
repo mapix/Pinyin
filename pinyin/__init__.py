@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 from builtins import object
-# -*- coding: utf-8 -*-
 
 import jieba
 from collections import defaultdict
