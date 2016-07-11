@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-import sys
-import os.path
 import unittest
-
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from pinyin import Pinyin
 
