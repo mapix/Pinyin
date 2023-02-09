@@ -1,3 +1,5 @@
+:no_entry: [DEPRECATED] Active at https://github.com/lexdene/Pinyin
+
 Pinyin
 ------
 
