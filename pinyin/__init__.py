@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from builtins import object
 from io import open
 
 import jieba
@@ -11,7 +10,7 @@ from itertools import product, islice
 
 from pinyin.config import FILE_WORDS, FILE_WORD, FILE_TERM, FILE_USER_DICT, CHINESE_RE
 from pinyin.utils import Singleton
-from future.utils import with_metaclass
+from six import with_metaclass
 
 __all__ = ["Pinyin"]
 

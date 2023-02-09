@@ -9,7 +9,7 @@ with open('README.md', 'rt') as f:
 
 setup(
     name='smart_pinyin',
-    version='0.4.5',
+    version='0.4.6',
     description='Smart Chinese-to-Pinyin converter.',
     author='mapix',
     author_email='mapix.me@gmail.com',
@@ -25,6 +25,6 @@ setup(
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
     ],
-    install_requires=['jieba', 'future'],
+    install_requires=['jieba', 'six'],
     **extra
 )
